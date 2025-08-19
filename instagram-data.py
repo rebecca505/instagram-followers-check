@@ -3,8 +3,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-loginInfo = os.getenv('login')
-passwordInfo = os.getenv('password')
+loginInfo = os.getenv('LOGIN')
+passwordInfo = os.getenv('PASSWORD')
 
 def run(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=False)
