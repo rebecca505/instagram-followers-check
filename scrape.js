@@ -6,6 +6,8 @@
 
         let followers = [];
         let following = [];
+        let dontFollowMeBack = [];
+        let iDontFollowBack = [];
         try {
             console.log(`Process started! Give it a couple of seconds`);
 

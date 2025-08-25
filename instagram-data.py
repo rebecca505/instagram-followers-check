@@ -27,14 +27,8 @@ def run(playwright: Playwright) -> None:
 
     # Click Log In
     page.get_by_role("button", name="Log in", exact=True).click()
-    # page.wait_for_url("https://www.instagram.com/accounts/onetap/?next=%2F")
-    page.wait_for_load_state("networkidle", timeout=60000) #wait for page to load
-
-    if "challenge" in page.url: #check for challenge
-        print("Instagram asking for a challenge verification")
-        with open("challenge.txt", "w") as f:
-            f.write(page.url)  #for verification purposes
-        return
+    
+    page.wait_for_url("https://www.instagram.com/accounts/onetap/?next=%2F")
 
     page.goto("https://www.instagram.com/")
 
