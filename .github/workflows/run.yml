@@ -30,3 +30,11 @@ jobs:
           LOGIN: ${{ secrets.LOGIN }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: python instagram-data.py
+
+      - name: Upload challenge screenshot (if it exists)
+        if: success() || failure()  # Run even if the script fails
+        uses: actions/upload-artifact@v4
+        with:
+          name: challenge-screenshot
+          path: challenge.png
+          if-no-files-found: ignore
