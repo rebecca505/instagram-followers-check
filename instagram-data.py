@@ -8,7 +8,7 @@ loginInfo = os.getenv('LOGIN')
 passwordInfo = os.getenv('PASSWORD')
 
 def run(playwright: Playwright) -> None:
-    browser = playwright.chromium.launch(headless=False)
+    browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
 
     # Open new page
