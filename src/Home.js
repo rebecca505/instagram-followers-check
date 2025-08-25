@@ -6,47 +6,47 @@ export default function Home() {
     return (
         <div>
             <Box bgSize="cover" bgRepeat="no-repeat" bgImage="url('./images/instagram.png')" w="100vw" h="100vh" bgBlendMode="multiply" bgColor="white" display="flex" >
-            <Box m="10px" borderWidth="1px" borderColor={"white"} p="15px">
-            <AbsoluteCenter fontSize="15vw" color="white"><BiRadioCircle /></AbsoluteCenter>
+            <Box m="30px" borderWidth="1.2vw" borderColor={"white"} p="15px" borderRadius="lg" bg="#f9f9f9">
+            {/* <AbsoluteCenter fontSize="15vw" color="white"><BiRadioCircle /></AbsoluteCenter> */}
                 <Box mb="5vh" textAlign="center" >
                     <p style={{
-                        color: "white",
+                        color: "black",
                         fontSize: "5vw",
                         fontFamily: "Helvetica Neue",
-                        WebkitTextStroke: ".2vw white",
+                        WebkitTextStroke: ".2vw ",
                     }}>
                         instagram scraper
                         <p style={{
-                            color: "white",
+                            color: "black",
                             fontSize: "4vw",
                             WebkitTextStroke: ".1vw white"
                         }}>instructions</p>
                     </p>
                 </Box>
-                <Box color="white" mx="10vw">
+                <Box color="black" mx="1vw">
                     <center>
                         <Grid templateColumns="repeat(2, 1fr)" gap="6">
                         <Box w="50vw" textAlign="left">
                             <Box>1. Download the following files</Box>
-                            <Box display="flex" m="10px" gap="10px">
+                            <Box display="flex" m="10px" gap="10px" flexWrap="wrap">
                                 <Button
-                                    borderColor="#dd2a7b"
+                                    borderColor="gray.300"
                                     w={"200px"}
                                     fontSize={17}
-                                    background="#f58529"
-                                    color="#515bd4"
-                                    _hover={{ bg: "#feda77", borderWidth: "2px" }}
+                                    background="black"
+                                    color="white"
+                                    _hover={{ bg: "gray.200", color: "black", borderWidth: "2px" }}
                                     borderWidth=".5px">
                                     <a href={require('./files/instagram-data.txt')} download="instagram-data.py">PYTHON FILE</a>
                                 </Button>
 
                                 <Button
-                                    borderColor="#dd2a7b"
+                                    borderColor="gray.300"
                                     w={"200px"}
                                     fontSize={17}
-                                    background="#f58529"
-                                    color="#515bd4"
-                                    _hover={{ bg: "#feda77", borderWidth: "2px" }}
+                                    background="black"
+                                    color="white"
+                                    _hover={{ bg: "gray.200", color: "black", borderWidth: "2px" }}
                                     borderWidth=".5px">
                                     <a href={require('./files/scrape.txt')} download="scrape.js">JAVASCRIPT FILE</a>
                                 </Button>
