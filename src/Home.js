@@ -1,4 +1,5 @@
-import { AbsoluteCenter, Box, Button, DownloadTrigger } from "@chakra-ui/react";
+import { AbsoluteCenter, Box, Button, DownloadTrigger, HoverCard, Portal, Strong } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 // import img from ../public/images/isntagram.png;
 
 export default function Home() {
@@ -23,40 +24,90 @@ export default function Home() {
                 <Box color="white">
                     <center>
                         <Box w="50vw" textAlign="left">
-                        <Box>1. Download the following files</Box>
-                        <Box>
-                            <Button
-                                borderColor="#dd2a7b"
-                                w={"200px"}
-                                fontSize={17}
-                                background="#f58529"
-                                color="#515bd4"
-                                _hover={{ bg: "#feda77", borderWidth: "2px" }}
-                                borderWidth=".5px">
-                                <a href={require('./files/instagram-data.txt')} download="instagram-data.py">PYTHON FILE</a>
-                            </Button>
+                            <Box>1. Download the following files</Box>
+                            <Box display="flex" m="10px" gap="10px">
+                                <Button
+                                    borderColor="#dd2a7b"
+                                    w={"200px"}
+                                    fontSize={17}
+                                    background="#f58529"
+                                    color="#515bd4"
+                                    _hover={{ bg: "#feda77", borderWidth: "2px" }}
+                                    borderWidth=".5px">
+                                    <a href={require('./files/instagram-data.txt')} download="instagram-data.py">PYTHON FILE</a>
+                                </Button>
 
-                            <Button
-                                borderColor="#dd2a7b"
-                                w={"200px"}
-                                fontSize={17}
-                                background="#f58529"
-                                color="#515bd4"
-                                _hover={{ bg: "#feda77", borderWidth: "2px" }}
-                                borderWidth=".5px">
-                                <a href={require('./files/scrape.txt')} download="scrape.js">JAVASCRIPT FILE</a>
-                            </Button>
+                                <Button
+                                    borderColor="#dd2a7b"
+                                    w={"200px"}
+                                    fontSize={17}
+                                    background="#f58529"
+                                    color="#515bd4"
+                                    _hover={{ bg: "#feda77", borderWidth: "2px" }}
+                                    borderWidth=".5px">
+                                    <a href={require('./files/scrape.txt')} download="scrape.js">JAVASCRIPT FILE</a>
+                                </Button>
+                            </Box>
+                            <Box>2. Ensure these files are in the same folder or location</Box>
+                            <Box>3.
+                                <HoverCard.Root>
+                                    <HoverCard.Trigger asChild>
+                                        <span> Open
+                                            <a href="https://support.apple.com/guide/terminal/welcome/mac"> Terminal</a>
+                                        </span>
+                                    </HoverCard.Trigger>
+                                    <Portal>
+                                        <HoverCard.Positioner>
+                                            <HoverCard.Content>
+                                                <HoverCard.Arrow />
+                                                <Box>Open Spotlight search <strong>(Command-Spacebar)</strong></Box>
+                                                <Box>Type "terminal" and hit 'return'</Box>
+                                            </HoverCard.Content>
+                                        </HoverCard.Positioner>
+                                    </Portal>
+                                </HoverCard.Root>
+                            </Box>
+                            <Box>4.<HoverCard.Root>
+                                <HoverCard.Trigger asChild>
+                                    <span> Verify <a href="https://www.python.org/"><strong>python</strong></a> is installed
+                                    </span>
+                                </HoverCard.Trigger>
+                                <Portal>
+                                    <HoverCard.Positioner>
+                                        <HoverCard.Content>
+                                            <HoverCard.Arrow />
+                                            <Box>Type in:</Box>
+                                            <Box><Strong>python --version</Strong></Box>
+                                            <Box>into Terminal</Box>
+                                        </HoverCard.Content>
+                                    </HoverCard.Positioner>
+                                </Portal>
+                            </HoverCard.Root></Box>
+                            <Box>5.<HoverCard.Root>
+                                <HoverCard.Trigger asChild>
+                                    <span> If not, <a href="https://www.python.org/downloads/"> install it</a>
+                                    </span>
+                                </HoverCard.Trigger>
+                                <Portal>
+                                    <HoverCard.Positioner>
+                                        <HoverCard.Content>
+                                            <HoverCard.Arrow />
+                                            <Box>Type in:</Box>
+                                            <Box><Strong>brew install python</Strong></Box>
+                                            <Box>into Terminal</Box>
+                                            <br />
+                                            <Box><strong>NOTE:</strong> You need to install brew to use this command. Type in:</Box>
+                                            <Box><strong>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</strong></Box>
+                                            <Box>into Terminal</Box>
+                                        </HoverCard.Content>
+                                    </HoverCard.Positioner>
+                                </Portal>
+                            </HoverCard.Root></Box>
+                            <Box>5. install dependencies: pip install playwright python-dotenv</Box>
+                            <Box>6. then: playwright install</Box>
+                            {/* need a place for users to type in username/password safely */}
+                            <Box>Finally: python instagram-data.py</Box>
                         </Box>
-                        <Box>2. open Terminal</Box>
-                        <Box>3. verify python is installed. type in: <text fontFamily="Courier-New">python --version</text></Box>
-                        <Box>4. If not, install it: brew --version</Box>
-                        <Box>4.5 NOTE* you may need to install brew: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</Box>
-                        <Box>Then run step 4</Box>
-                        <Box>5. install dependencies: pip install playwright python-dotenv</Box>
-                        <Box>6. then: playwright install</Box>
-                        {/* need a place for users to type in username/password safely */}
-                        <Box>Finally: python instagram-data.py</Box>
-                    </Box>
                     </center>
                 </Box>
             </Box>
