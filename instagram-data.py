@@ -8,6 +8,7 @@ loginInfo = os.getenv('LOGIN')
 passwordInfo = os.getenv('PASSWORD')
 
 def run(playwright: Playwright) -> None:
+    print("Please wait for it to begin")
     browser = playwright.chromium.launch(headless=True)
     context = browser.new_context()
 
@@ -26,11 +27,15 @@ def run(playwright: Playwright) -> None:
 
     # Click Log In
     page.get_by_role("button", name="Log in", exact=True).click()
-    page.wait_for_url("https://www.instagram.com/accounts/onetap/?next=%2F")
+    # page.wait_for_url("https://www.instagram.com/accounts/onetap/?next=%2F")
+    page.wait_for_load_state("networkidle", timeout=60000) #wait for page to load
+
+    if "challenge" in page.url: #check for challenge
+        print("Instagram asking for a challenge verification")
+        page.screenshot(path="challenge.png")  #for debugging
+        return
 
     page.goto("https://www.instagram.com/")
-
-    print("Please wait for it to begin")
 
     # Wait for the necessary JS to be ready
     page.wait_for_timeout(5000)
