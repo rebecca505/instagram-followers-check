@@ -32,7 +32,8 @@ def run(playwright: Playwright) -> None:
 
     if "challenge" in page.url: #check for challenge
         print("Instagram asking for a challenge verification")
-        page.screenshot(path="challenge.png")  #for debugging
+        with open("challenge.txt", "w") as f:
+            f.write(page.url)  #for verification purposes
         return
 
     page.goto("https://www.instagram.com/")
