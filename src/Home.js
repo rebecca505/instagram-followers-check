@@ -1,11 +1,13 @@
-import { AbsoluteCenter, Box, Button, DownloadTrigger, HoverCard, Portal, Strong } from "@chakra-ui/react";
+import { AbsoluteCenter, Box, Button, DownloadTrigger, Grid, HoverCard, Portal, Strong } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-// import img from ../public/images/isntagram.png;
+import { BiRadioCircle } from "react-icons/bi";
 
 export default function Home() {
     return (
         <div>
-            <Box bgSize="cover" bgRepeat="no-repeat" bgImage="url('./images/instagram.png')" w="100vw" h="100vh" bgBlendMode="multiply" bgColor="white">
+            <Box bgSize="cover" bgRepeat="no-repeat" bgImage="url('./images/instagram.png')" w="100vw" h="100vh" bgBlendMode="multiply" bgColor="white" display="flex" >
+            <Box m="10px" borderWidth="1px" borderColor={"white"} p="15px">
+            <AbsoluteCenter fontSize="15vw" color="white"><BiRadioCircle /></AbsoluteCenter>
                 <Box mb="5vh" textAlign="center" >
                     <p style={{
                         color: "white",
@@ -21,8 +23,9 @@ export default function Home() {
                         }}>instructions</p>
                     </p>
                 </Box>
-                <Box color="white">
+                <Box color="white" mx="10vw">
                     <center>
+                        <Grid templateColumns="repeat(2, 1fr)" gap="6">
                         <Box w="50vw" textAlign="left">
                             <Box>1. Download the following files</Box>
                             <Box display="flex" m="10px" gap="10px">
@@ -108,9 +111,11 @@ export default function Home() {
                             {/* need a place for users to type in username/password safely */}
                             <Box>Finally: python instagram-data.py</Box>
                         </Box>
+                        <Box>What is this?</Box>
+                        </Grid>
                     </center>
                 </Box>
-            </Box>
+            </Box></Box>
         </div>
     );
 }
