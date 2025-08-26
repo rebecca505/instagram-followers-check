@@ -1,4 +1,4 @@
-import { Box, Button, Text, Grid, HoverCard, Portal, Strong, CardHeader, CardRoot, CardBody, CardFooter } from "@chakra-ui/react";
+import { Box, Button, Text, Grid, HoverCard, Portal, Strong, CardHeader, CardRoot, CardBody, CardFooter, Input } from "@chakra-ui/react";
 import { FaRegHeart, FaHeart, FaUserCircle } from "react-icons/fa";
 import { TbMessageCircle } from "react-icons/tb";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -39,7 +39,21 @@ export default function Home() {
                                         <Popover.Content>
                                             <Popover.Arrow />
                                             <Popover.Body>
-                                                text
+                                                Enter your instagram login details
+                                                <Popover.Root>
+                                                    <Popover.Trigger>
+                                                        <a>(i)</a>
+                                                    </Popover.Trigger>
+                                                    <Popover.Content>
+                                                        <Popover.Arrow />
+                                                        <Popover.Body>
+                                                            <Box><strong>Your data is not saved</strong></Box>
+                                                            The information is only used to temporarily update the values in the files you will download.
+                                                        </Popover.Body>
+                                                    </Popover.Content>
+                                                </Popover.Root>
+                                                <Input placeholder="username" size="sm" />
+                                                <Input placeholder="password" size="sm" />
                                             </Popover.Body>
                                         </Popover.Content>
                                     </Popover.Positioner>
