@@ -3,7 +3,7 @@ import { Box, Button, Text, Grid, HoverCard, Portal, Strong, CardHeader, CardRoo
 import { FaRegHeart, FaHeart, FaUserCircle } from "react-icons/fa";
 import { TbMessageCircle } from "react-icons/tb";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { PiUserCircleFill } from "react-icons/pi";
+import { PiUserCircleFill, PiUserCircleDuotone } from "react-icons/pi";
 import { useState } from "react";
 
 export default function Home() {
@@ -28,6 +28,9 @@ export default function Home() {
                             fontFamily: "Helvetica Neue",
                             WebkitTextStroke: ".2vw ",
                         }}>
+                            <PiUserCircleDuotone
+                                style={{ position: 'absolute' }}
+                            />
                             instagram scraper
                             <p style={{
                                 color: "black",
@@ -47,7 +50,8 @@ export default function Home() {
                                 </CardHeader>
                                 <CardBody borderWidth=".5px" p="15px" borderColor="gray.110" bgColor="gray.100">
                                     <Box textAlign="left">
-                                        <Box>1. Download the following files</Box>
+                                        <Box display="flex" alignItems="center" gap="2">1. Click on the <PiUserCircleDuotone style={{ fontSize: "20px" }} /> icon and enter your details</Box>
+                                        <Box>2. Download the following files</Box>
                                         <Box display="flex" m="10px" gap="10px" flexWrap="wrap">
                                             <Button
                                                 borderColor="gray.300"
@@ -69,8 +73,8 @@ export default function Home() {
                                                 <a href={require('./files/scrape.txt')} download="scrape.js">JAVASCRIPT FILE</a>
                                             </Button>
                                         </Box>
-                                        <Box>2. Ensure these files are in the same folder or location</Box>
-                                        <Box>3.
+                                        <Box>3. Ensure these files are in the same folder or location</Box>
+                                        <Box>4.
                                             <HoverCard.Root>
                                                 <HoverCard.Trigger asChild>
                                                     <span> Open
@@ -88,7 +92,7 @@ export default function Home() {
                                                 </Portal>
                                             </HoverCard.Root>
                                         </Box>
-                                        <Box>4.<HoverCard.Root>
+                                        <Box>5.<HoverCard.Root>
                                             <HoverCard.Trigger asChild>
                                                 <span> Verify <a href="https://www.python.org/"><strong>python</strong></a> is installed
                                                 </span>
@@ -104,7 +108,7 @@ export default function Home() {
                                                 </HoverCard.Positioner>
                                             </Portal>
                                         </HoverCard.Root></Box>
-                                        <Box>5.<HoverCard.Root>
+                                        <Box>6.<HoverCard.Root>
                                             <HoverCard.Trigger asChild>
                                                 <span> If not, <a href="https://www.python.org/downloads/"> install python</a>
                                                 </span>
@@ -124,9 +128,9 @@ export default function Home() {
                                                 </HoverCard.Positioner>
                                             </Portal>
                                         </HoverCard.Root></Box>
-                                        <Box>5. Install dependencies:</Box>
+                                        <Box>7. Install dependencies:</Box>
                                         <Box pl="15px">pip install playwright python-dotenv</Box>
-                                        <Box>6. Install Playwright:</Box>
+                                        <Box>8. Install Playwright:</Box>
                                         <Box pl="15px">playwright install</Box>
                                         {/* need a place for users to type in username/password safely */}
                                         <Box>Finally run the code and type: <strong>python instagram-data.py</strong></Box>
@@ -149,10 +153,11 @@ export default function Home() {
                                     <Box textAlign="left">
                                         <Box>This tool returns four pieces of information:</Box>
                                         <Box>1. Your followers <br />
-                                        2. People you follow <br />
-                                        3. Who you don’t follow back <br />
-                                        4. Who doesn’t follow you back</Box>
-                                        <Box my="10px">By using this tool, you can easily monitor and manage your Instagram connections.</Box>
+                                            2. People you follow <br />
+                                            3. Who you don’t follow back <br />
+                                            4. Who doesn’t follow you back</Box>
+                                        <Box mt="10px">You must be logged in (and follow if it's private) to scrape an account.</Box>
+                                        <Box my="10px">By using this tool, you can easily monitor and manage any Instagram connections.</Box>
                                         <strong>NOTE:</strong> Unfortunately, because Instagram’s anti-bot mechanisms are quite vigilant, the tool must be deployed locally on your computer.
                                         <Box mt="10px">The instructions are for macOS; however, the code works on any system.</Box>
                                     </Box>
