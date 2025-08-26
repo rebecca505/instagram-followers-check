@@ -7,6 +7,7 @@ export default function FAQ() {
             Do you save any information? No, all infromation is only on this one run. no data is saved so you must relogin each time you want to run a diff account
             Can i run the same files over again? yes, once you made them once they should continue working without any changes
             what if i dont want to log in? you can download the files and manually change the values for LOGIN and PASSWORD (your login) on instagram-data.py and SCRAPED-USERNAME (the account you wish to get the info for) on scrape.js
+            Why is it run locally and not through a server? This website was developed and deployed before I had access to a free site where i can deploy backends easily. i may update this code accordingly later
         </div>
     )
 }

@@ -108,7 +108,7 @@ passwordInfo = "`
                                                     <Popover.Content>
                                                         <Popover.Arrow />
                                                         <Popover.Body>
-                                                            <Box><strong>Your data is not saved</strong></Box>
+                                                            <Box><strong>Your data is protected</strong></Box>
                                                             The information is only used to temporarily update the values in the files you will download.
                                                         </Popover.Body>
                                                     </Popover.Content>
