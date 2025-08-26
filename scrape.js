@@ -2,7 +2,7 @@
 
 (async () => {
     async function scrapeData() {
-        const username = "username";
+        const username = "beccaxfrey";
 
         let followers = [];
         let following = [];
@@ -80,8 +80,18 @@
             }
 
             console.log(`Scraped following`);
-            
-            return { followers, following };
+
+            dontFollowMeBack = following.filter(
+                (followings) => !followers.find(follower => follower.username === followings.username)
+            );
+
+            iDontFollowBack = followers.filter(
+                (follower) => !following.find(following => following.username === follower.username)
+            );
+
+            console.log(`Found non followers and non following`);
+
+            return { followers, following, dontFollowMeBack, iDontFollowBack };
 
         } catch (err) {
             return { error: err.toString() };

@@ -52,6 +52,10 @@ def run(playwright: Playwright) -> None:
             json.dump(data["followers"], f, indent=2)
         with open("following.json", "w", encoding="utf-8") as f:
             json.dump(data["following"], f, indent=2)
+        with open("dontFollowMeBack.json", "w", encoding="utf-8") as f:
+            json.dump(data["dontFollowMeBack"], f, indent=2)
+        with open("iDontFollowBack.json", "w", encoding="utf-8") as f:
+            json.dump(data["iDontFollowBack"], f, indent=2)
     
     print("Data saved to JSON files!")
 
