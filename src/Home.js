@@ -8,9 +8,15 @@ import { useState } from "react";
 
 export default function Home() {
     const [isClicked, setIsClicked] = useState(false)
+    const [isClicked2, setIsClicked2] = useState(false)
+
     function switchH() {
         setIsClicked(s => !s)
     }
+    function switchH2() {
+        setIsClicked2(s => !s)
+    }
+
     return (
         <div>
             <Box bgSize="cover" bgRepeat="no-repeat" bgImage="url('./images/instagram.png')" w="100%" h="100%" bgBlendMode="multiply" bgColor="white" display="flex" justifyContent="center" alignItems="center">
@@ -151,7 +157,7 @@ export default function Home() {
                                     </Box>
                                 </CardBody>
                                 <CardFooter> <Grid>
-                                    <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <a onClick={switchH}>{isClicked ? (<FaRegHeart />) : (<FaHeart />)}</a>  <TbMessageCircle style={{ transform: "scaleX(-1)", fontSize: "23px" }} /> </Box>
+                                    <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <a onClick={switchH2}>{isClicked2 ? (<FaRegHeart />) : (<FaHeart />)}</a>  <TbMessageCircle style={{ transform: "scaleX(-1)", fontSize: "23px" }} /> </Box>
                                     <Box><strong>what_is_it</strong> Hope you found this useful!</Box>
                                 </Grid>
                                 </CardFooter>
