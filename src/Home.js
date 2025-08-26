@@ -9,6 +9,7 @@ import { useState } from "react";
 export default function Home() {
     const [isClicked, setIsClicked] = useState(true)
     const [isClicked2, setIsClicked2] = useState(true)
+    const [fileContent, setFileContent] = useState('')
 
     function switchH() {
         setIsClicked(s => !s)
@@ -17,14 +18,20 @@ export default function Home() {
         setIsClicked2(s => !s)
     }
 
-    const getFileContent = () => {
-        fetch('../public/files/instagram-data.txt')
-            .then((response) => response.text())
-            .then((data) => setFileContent(data))
-            .catch((error) => console.error('Error loading file:', error));
+    const getFileContent = async () => {
+        try {
+            const response = await fetch('/files/instagram-data.txt');
+            const data = await response.text();
+            setFileContent(data); // Update the state with the fetched data
+        } catch (error) {
+            console.error('Error loading file:', error);
+        }
     };
 
-    function downloadJSFile() {
+    async function downloadJSFile() {
+        if (!fileContent) {
+            await getFileContent();
+        }
         var imports = `from playwright.sync_api import Playwright, sync_playwright
 import json
 // WRITE LOGIN BELOW (if you didn't insert it on the site)
@@ -32,9 +39,9 @@ import json
         var passwords = `
 // WRITE PASSWORD BELOW (if you didn't insert it on the site)
 `
-        var jsFile = getFileContent
-        var log = document.getElementById("login").value;
-        var pass = document.getElementById("password").value;
+        var jsFile = fileContent
+        var log = document.getElementById("login").value || "ENTER-LOGIN";
+        var pass = document.getElementById("password").value || "ENTER-PASSWORD";
         var blob = new Blob([imports + "loginInfo = " + log + passwords + "passwordInfo = " + pass + jsFile], { type: 'text/plain' });
         var link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
