@@ -30,10 +30,20 @@ export default function Home() {
                         }}>
                             <Popover.Root>
                                 <Popover.Trigger asChild>
-                                    <a href="/" asChild variant="plain" style={{ position: 'absolute', left: '60px' }}>
+                                    <a style={{ position: 'absolute', left: '60px', cursor: 'pointer' }}>
                                         <PiUserCircleDuotone style={{ fontSize: "5vw" }} />
                                     </a>
                                 </Popover.Trigger>
+                                <Portal>
+                                    <Popover.Positioner>
+                                        <Popover.Content>
+                                            <Popover.Arrow />
+                                            <Popover.Body>
+                                                text
+                                            </Popover.Body>
+                                        </Popover.Content>
+                                    </Popover.Positioner>
+                                </Portal>
                             </Popover.Root>
                             instagram scraper
                             <p style={{
