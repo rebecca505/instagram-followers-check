@@ -28,11 +28,11 @@ export default function Home() {
                         </p>
                     </Box>
                     <Box color="black" mx="1vw">
-                        <Grid templateColumns="repeat(2, 1fr)" gap="6">
+                        <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap="6" minWidth="350px">
                             <CardRoot borderRadius={0}>
                                 <CardHeader><Box display="flex" alignItems="center" mb="10px">
                                     <CgProfile style={{ marginRight: '8px' }} />
-                                    <Text fontSize="lg" fontWeight="bold">Scraper Steps</Text>
+                                    <Text fontSize="lg" fontWeight="bold">scraper_steps</Text>
                                 </Box>
                                 </CardHeader>
                                 <CardBody borderWidth="2px" p="10px" borderColor="gray.300">
@@ -124,7 +124,7 @@ export default function Home() {
                                 </CardBody>
                                 <CardFooter> <Grid>
                                     <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <FaRegHeart /> <TbMessageCircle style = {{transform: "scaleX(-1)", fontSize:"23px" }} /> </Box> 
-                                <Box><strong>steps</strong> All done! You can now preview the saved files in your folder</Box>
+                                <Box><strong>scraper_steps</strong> All done! You can now preview the saved files in your folder</Box>
                                 </Grid>
                                 </CardFooter>
                             </CardRoot>
