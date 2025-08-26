@@ -1,11 +1,4 @@
-from playwright.sync_api import Playwright, sync_playwright
-import os
-from dotenv import load_dotenv
-import json
 
-load_dotenv()
-loginInfo = os.getenv('LOGIN')
-passwordInfo = os.getenv('PASSWORD')
 
 def run(playwright: Playwright) -> None:
     print("Please wait for it to begin")

@@ -4,7 +4,7 @@ import { TbMessageCircle } from "react-icons/tb";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { PiUserCircleFill, PiUserCircleDuotone } from "react-icons/pi";
 import { IoMdInformationCircleOutline } from "react-icons/io";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
     const [isClicked, setIsClicked] = useState(true)
@@ -18,34 +18,39 @@ export default function Home() {
         setIsClicked2(s => !s)
     }
 
-    const getFileContent = async () => {
-        try {
-            const response = await fetch('/files/instagram-data.txt');
-            const data = await response.text();
-            setFileContent(data); // Update the state with the fetched data
-        } catch (error) {
-            console.error('Error loading file:', error);
+    useEffect(() => {
+        async function fetchFile() {
+            try {
+                const response = await fetch('/files/instagram-data.txt');
+                const data = await response.text();
+                setFileContent(data);
+            } catch (err) {
+                console.error('Error loading file:', err);
+            }
         }
-    };
+        fetchFile();
+    }, []);
 
-    async function downloadJSFile() {
+    async function downloadPYFile() {
         if (!fileContent) {
-            await getFileContent();
+            console.log("File content not loaded yet.");
+            return;
         }
         var imports = `from playwright.sync_api import Playwright, sync_playwright
 import json
-// WRITE LOGIN BELOW (if you didn't insert it on the site)
+
+# WRITE LOGIN BELOW (if you didn't insert it on the site)
 `
         var passwords = `
-// WRITE PASSWORD BELOW (if you didn't insert it on the site)
+# WRITE PASSWORD BELOW (if you didn't insert it on the site)
 `
-        var jsFile = fileContent
+        var pyFile = fileContent
         var log = document.getElementById("login").value || "ENTER-LOGIN";
         var pass = document.getElementById("password").value || "ENTER-PASSWORD";
-        var blob = new Blob([imports + "loginInfo = " + log + passwords + "passwordInfo = " + pass + jsFile], { type: 'text/plain' });
+        var blob = new Blob([imports + "loginInfo = " + log + passwords + "passwordInfo = " + pass + pyFile], { type: 'text/plain' });
         var link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.download = 'myTextFile.js';
+        link.download = 'instagram-data.py';
         link.click();
     }
 
@@ -123,7 +128,7 @@ import json
                                                 color="white"
                                                 _hover={{ bg: "gray.200", color: "black", borderWidth: "2px" }}
                                                 borderWidth=".5px">
-                                                {/* <a href={require('./files/instagram-data.txt')} download="instagram-data.py">PYTHON FILE</a> */}
+                                                <a onClick={downloadPYFile}> PYTHON File</a>
                                             </Button>
 
                                             <Button
@@ -133,8 +138,7 @@ import json
                                                 color="white"
                                                 _hover={{ bg: "gray.200", color: "black", borderWidth: "2px" }}
                                                 borderWidth=".5px">
-                                                {/* <a href={require('./files/scrape.txt')} download="scrape.js">JAVASCRIPT FILE</a> */}
-                                                <a onClick={downloadJSFile}> JS File</a>
+                                                {/* <a onClick={downloadJSFile}> JS File</a> */}
                                             </Button>
                                         </Box>
                                         <Box>3. Ensure these files are in the same folder or location</Box>
