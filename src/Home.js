@@ -147,13 +147,14 @@ export default function Home() {
                                 </CardHeader>
                                 <CardBody borderWidth=".5px" p="15px" borderColor="gray.110" bgColor="gray.100">
                                     <Box textAlign="left">
-                                        <Box>This tool returns four key pieces of information:</Box>
+                                        <Box>This tool returns four pieces of information:</Box>
                                         <Box>1. Your followers <br />
                                         2. People you follow <br />
                                         3. Who you don’t follow back <br />
                                         4. Who doesn’t follow you back</Box>
                                         <Box my="10px">By using this tool, you can easily monitor and manage your Instagram connections.</Box>
                                         <strong>NOTE:</strong> Unfortunately, because Instagram’s anti-bot mechanisms are quite vigilant, the tool must be deployed locally on your computer.
+                                        <Box mt="10px">The instructions are for macOS; however, the code works on any system.</Box>
                                     </Box>
                                 </CardBody>
                                 <CardFooter> <Grid>
