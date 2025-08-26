@@ -6,7 +6,6 @@ import json
 load_dotenv()
 loginInfo = os.getenv('LOGIN')
 passwordInfo = os.getenv('PASSWORD')
-scrapedUser = os.getenv('USERNAME')
 
 def run(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=False)
@@ -33,6 +32,8 @@ def run(playwright: Playwright) -> None:
 
     # Wait for the necessary JS to be ready
     page.wait_for_timeout(5000)
+
+    page.on("console", lambda msg: print(f"{msg.text}"))
 
     # Read the JS code from the file
     with open("scrape.js", "r", encoding="utf-8") as f:
