@@ -1,6 +1,8 @@
 import { AbsoluteCenter, Box, Button, Card, Text, Grid, HoverCard, Portal, Strong } from "@chakra-ui/react";
 // import { IoMdInformationCircleOutline } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
+import { FaRegHeart } from "react-icons/fa";
+
 
 
 export default function Home() {
@@ -12,14 +14,14 @@ export default function Home() {
                     <Box mb="5vh" textAlign="center" >
                         <p style={{
                             color: "black",
-                            fontSize: "5vw",
+                            fontSize: "4vw",
                             fontFamily: "Helvetica Neue",
                             WebkitTextStroke: ".2vw ",
                         }}>
                             instagram scraper
                             <p style={{
                                 color: "black",
-                                fontSize: "4vw",
+                                fontSize: "3vw",
                                 WebkitTextStroke: ".1vw white"
                             }}>instructions</p>
                         </p>
@@ -121,7 +123,8 @@ export default function Home() {
                                         <Box>Finally run the code and type: <strong>python instagram-data.py</strong></Box>
                                     </Box>
                                 </Card.Body>
-                                <Card.Footer></Card.Footer>
+                                <Card.Footer><Box><FaRegHeart /></Box>
+                                <Box><strong>all-done</strong> You can now preview the saved files in your folder</Box></Card.Footer>
                             </Card.Root>
                             <Box>What is this?</Box>
                         </Grid>
