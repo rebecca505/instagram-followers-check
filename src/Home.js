@@ -1,13 +1,10 @@
 import { Box, Button, Text, Grid, HoverCard, Portal, Strong, CardHeader, CardRoot, CardBody, CardFooter } from "@chakra-ui/react";
 // import { IoMdInformationCircleOutline } from "react-icons/io";
-import { CgProfile } from "react-icons/cg";
-import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart, FaUserCircle } from "react-icons/fa";
 import { TbMessageCircle } from "react-icons/tb";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import React, { useState } from "react";
-
-
-
+import { PiUserCircleFill } from "react-icons/pi";
+import { useState } from "react";
 
 export default function Home() {
     const [isClicked, setIsClicked] = useState(false)
@@ -18,7 +15,6 @@ export default function Home() {
         <div>
             <Box bgSize="cover" bgRepeat="no-repeat" bgImage="url('./images/instagram.png')" w="100%" h="100%" bgBlendMode="multiply" bgColor="white" display="flex" justifyContent="center" alignItems="center">
                 <Box m="30px" borderWidth="1.2vw" borderColor={"white"} p="15px" borderRadius="lg" bg="#f9f9f9" h="90%" overflowY="auto">
-                    {/* <AbsoluteCenter fontSize="15vw" color="white"><BiRadioCircle /></AbsoluteCenter> */}
                     <Box mb="5vh" textAlign="center" >
                         <p style={{
                             color: "black",
@@ -38,7 +34,7 @@ export default function Home() {
                         <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap="6" minWidth="350px">
                             <CardRoot borderRadius="0">
                                 <CardHeader><Box display="flex" alignItems="center" mb="20px">
-                                    <CgProfile style={{ marginRight: '8px', fontSize:"20px" }} />
+                                    <FaUserCircle style={{ marginRight: '8px', fontSize: "20px" }} />
                                     <Text fontSize="lg" fontWeight="bold">scraper_steps</Text>
                                     <Box ml="auto"><BsThreeDotsVertical /></Box>
                                 </Box>
@@ -131,12 +127,35 @@ export default function Home() {
                                     </Box>
                                 </CardBody>
                                 <CardFooter> <Grid>
-                                    <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <a onClick={switchH}>{isClicked ? (<FaRegHeart />) : (<FaHeart />)}</a>  <TbMessageCircle style = {{transform: "scaleX(-1)", fontSize:"23px" }} /> </Box> 
-                                <Box><strong>scraper_steps</strong> All done! You can now preview the saved files in your folder</Box>
+                                    <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <a onClick={switchH}>{isClicked ? (<FaRegHeart />) : (<FaHeart />)}</a>  <TbMessageCircle style={{ transform: "scaleX(-1)", fontSize: "23px" }} /> </Box>
+                                    <Box><strong>scraper_steps</strong> All done! You can now preview the saved files in your folder</Box>
                                 </Grid>
                                 </CardFooter>
                             </CardRoot>
-                            <Box>What is this?</Box>
+                            <CardRoot borderRadius="0">
+                                <CardHeader><Box display="flex" alignItems="center" mb="20px">
+                                    <PiUserCircleFill style={{ marginRight: '8px', fontSize: "25px" }} />
+                                    <Text fontSize="lg" fontWeight="bold">what_is_it</Text>
+                                    <Box ml="auto"><BsThreeDotsVertical /></Box>
+                                </Box>
+                                </CardHeader>
+                                <CardBody borderWidth=".5px" p="15px" borderColor="gray.110" bgColor="gray.100">
+                                    <Box textAlign="left">
+                                        <Box>This tool returns four key pieces of information:</Box>
+                                        <Box>1. Your followers <br />
+                                        2. People you follow <br />
+                                        3. Who you don’t follow back <br />
+                                        4. Who doesn’t follow you back</Box>
+                                        <Box my="10px">By using this tool, you can easily monitor and manage your Instagram connections.</Box>
+                                        <strong>NOTE:</strong> Unfortunately, because Instagram’s anti-bot mechanisms are quite vigilant, the tool must be deployed locally on your computer.
+                                    </Box>
+                                </CardBody>
+                                <CardFooter> <Grid>
+                                    <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <a onClick={switchH}>{isClicked ? (<FaRegHeart />) : (<FaHeart />)}</a>  <TbMessageCircle style={{ transform: "scaleX(-1)", fontSize: "23px" }} /> </Box>
+                                    <Box><strong>what_is_it</strong> Hope you found this useful!</Box>
+                                </Grid>
+                                </CardFooter>
+                            </CardRoot>
                         </Grid>
                     </Box>
                 </Box></Box>
