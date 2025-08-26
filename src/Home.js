@@ -9,7 +9,8 @@ import { useState, useEffect } from "react";
 export default function Home() {
     const [isClicked, setIsClicked] = useState(true)
     const [isClicked2, setIsClicked2] = useState(true)
-    const [fileContent, setFileContent] = useState('')
+    const [pyContent, setPyContent] = useState('')
+    const [jsContent, setJsContent] = useState('')
 
     function switchH() {
         setIsClicked(s => !s)
@@ -19,38 +20,59 @@ export default function Home() {
     }
 
     useEffect(() => {
-        async function fetchFile() {
+        async function fetchPyFile() {
             try {
-                const response = await fetch('/files/instagram-data.txt');
+                const response = await fetch('/files/py-insta.txt');
                 const data = await response.text();
-                setFileContent(data);
+                setPyContent(data);
             } catch (err) {
                 console.error('Error loading file:', err);
             }
         }
-        fetchFile();
+        async function fetchJsFile() {
+            try {
+                const response = await fetch('/files/js-insta.txt');
+                const data = await response.text();
+                setJsContent(data);
+            } catch (err) {
+                console.error('Error loading file:', err);
+            }
+        }
+        fetchPyFile();
+        fetchJsFile();
     }, []);
 
     async function downloadPYFile() {
-        if (!fileContent) {
-            console.log("File content not loaded yet.");
-            return;
-        }
         var imports = `from playwright.sync_api import Playwright, sync_playwright
 import json
 
 # WRITE LOGIN BELOW (if you didn't insert it on the site)
-`
-        var passwords = `
+loginInfo = "`
+        var passwords = `"
 # WRITE PASSWORD BELOW (if you didn't insert it on the site)
-`
-        var pyFile = fileContent
+passwordInfo = "`
+        var pyFile = pyContent
         var log = document.getElementById("login").value || "ENTER-LOGIN";
         var pass = document.getElementById("password").value || "ENTER-PASSWORD";
-        var blob = new Blob([imports + "loginInfo = " + log + passwords + "passwordInfo = " + pass + pyFile], { type: 'text/plain' });
+        var blob = new Blob([imports + log + passwords + pass + pyFile], { type: 'text/plain' });
         var link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
         link.download = 'instagram-data.py';
+        link.click();
+    }
+
+    async function downloadJSFile() {
+        var setup = `(async () => {
+    async function scrapeData() {
+
+        // WRITE TARGET USERNAME BELOW (if you didn't insert it on the site)
+        const username = "`
+        var jsFile = jsContent
+        var user = document.getElementById("username").value || "ENTER-TARGET-USERNAME";
+        var blob = new Blob([setup + user + jsFile], { type: 'text/plain' });
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'scrape.js';
         link.click();
     }
 
@@ -128,7 +150,7 @@ import json
                                                 color="white"
                                                 _hover={{ bg: "gray.200", color: "black", borderWidth: "2px" }}
                                                 borderWidth=".5px">
-                                                <a onClick={downloadPYFile}> PYTHON File</a>
+                                                <a onClick={downloadPYFile}> PYTHON FILE</a>
                                             </Button>
 
                                             <Button
@@ -138,7 +160,7 @@ import json
                                                 color="white"
                                                 _hover={{ bg: "gray.200", color: "black", borderWidth: "2px" }}
                                                 borderWidth=".5px">
-                                                {/* <a onClick={downloadJSFile}> JS File</a> */}
+                                                <a onClick={downloadJSFile}> JAVASCRIPT FILE</a>
                                             </Button>
                                         </Box>
                                         <Box>3. Ensure these files are in the same folder or location</Box>
@@ -200,7 +222,6 @@ import json
                                         <Box pl="15px">pip install playwright python-dotenv</Box>
                                         <Box>8. Install Playwright:</Box>
                                         <Box pl="15px">playwright install</Box>
-                                        {/* need a place for users to type in username/password safely */}
                                         <Box>Finally run the code and type: <strong>python instagram-data.py</strong></Box>
                                     </Box>
                                 </CardBody>
