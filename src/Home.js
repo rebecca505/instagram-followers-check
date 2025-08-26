@@ -1,15 +1,16 @@
-import { AbsoluteCenter, Box, Button, Card, Text, Grid, HoverCard, Portal, Strong } from "@chakra-ui/react";
+import { AbsoluteCenter, Box, Button, Card, Text, Grid, HoverCard, Portal, Strong, SimpleGrid, CardHeader, CardRoot, CardBody, CardFooter } from "@chakra-ui/react";
 // import { IoMdInformationCircleOutline } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
 import { FaRegHeart } from "react-icons/fa";
+import { TbMessageCircle } from "react-icons/tb";
 
 
 
 export default function Home() {
     return (
         <div>
-            <Box bgSize="cover" bgRepeat="no-repeat" bgImage="url('./images/instagram.png')" w="100vw" h="100vh" bgBlendMode="multiply" bgColor="white" display="flex" justifyContent="center" alignItems="center">
-                <Box m="30px" borderWidth="1.2vw" borderColor={"white"} p="15px" borderRadius="lg" bg="#f9f9f9" >
+            <Box bgSize="cover" bgRepeat="no-repeat" bgImage="url('./images/instagram.png')" w="100%" h="100%" bgBlendMode="multiply" bgColor="white" display="flex" justifyContent="center" alignItems="center">
+                <Box m="30px" borderWidth="1.2vw" borderColor={"white"} p="15px" borderRadius="lg" bg="#f9f9f9" h="90%" overflowY="auto">
                     {/* <AbsoluteCenter fontSize="15vw" color="white"><BiRadioCircle /></AbsoluteCenter> */}
                     <Box mb="5vh" textAlign="center" >
                         <p style={{
@@ -28,20 +29,19 @@ export default function Home() {
                     </Box>
                     <Box color="black" mx="1vw">
                         <Grid templateColumns="repeat(2, 1fr)" gap="6">
-                            <Card.Root borderRadius={0}>
-                                <Card.Header><Box display="flex">
+                            <CardRoot borderRadius={0}>
+                                <CardHeader><Box display="flex" alignItems="center" mb="10px">
                                     <CgProfile style={{ marginRight: '8px' }} />
-                                    <Text fontSize="lg" fontWeight="bold">Steps</Text>
+                                    <Text fontSize="lg" fontWeight="bold">Scraper Steps</Text>
                                 </Box>
-                                </Card.Header>
-                                <Card.Body borderWidth="2px" p="10px" borderColor="gray.300">
+                                </CardHeader>
+                                <CardBody borderWidth="2px" p="10px" borderColor="gray.300">
                                     <Box textAlign="left">
                                         <Box>1. Download the following files</Box>
                                         <Box display="flex" m="10px" gap="10px" flexWrap="wrap">
                                             <Button
                                                 borderColor="gray.300"
-                                                w={"200px"}
-                                                fontSize={17}
+                                                fontSize={"14px"}
                                                 background="black"
                                                 color="white"
                                                 _hover={{ bg: "gray.200", color: "black", borderWidth: "2px" }}
@@ -51,8 +51,7 @@ export default function Home() {
 
                                             <Button
                                                 borderColor="gray.300"
-                                                w={"200px"}
-                                                fontSize={17}
+                                                fontSize={"14px"}
                                                 background="black"
                                                 color="white"
                                                 _hover={{ bg: "gray.200", color: "black", borderWidth: "2px" }}
@@ -122,10 +121,13 @@ export default function Home() {
                                         {/* need a place for users to type in username/password safely */}
                                         <Box>Finally run the code and type: <strong>python instagram-data.py</strong></Box>
                                     </Box>
-                                </Card.Body>
-                                <Card.Footer><Box><FaRegHeart /></Box>
-                                <Box><strong>all-done</strong> You can now preview the saved files in your folder</Box></Card.Footer>
-                            </Card.Root>
+                                </CardBody>
+                                <CardFooter> <Grid>
+                                    <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <FaRegHeart /> <TbMessageCircle style = {{transform: "scaleX(-1)", fontSize:"23px" }} /> </Box> 
+                                <Box><strong>steps</strong> All done! You can now preview the saved files in your folder</Box>
+                                </Grid>
+                                </CardFooter>
+                            </CardRoot>
                             <Box>What is this?</Box>
                         </Grid>
                     </Box>
