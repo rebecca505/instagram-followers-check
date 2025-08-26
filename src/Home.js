@@ -1,12 +1,19 @@
-import { AbsoluteCenter, Box, Button, Card, Text, Grid, HoverCard, Portal, Strong, SimpleGrid, CardHeader, CardRoot, CardBody, CardFooter } from "@chakra-ui/react";
+import { Box, Button, Text, Grid, HoverCard, Portal, Strong, CardHeader, CardRoot, CardBody, CardFooter } from "@chakra-ui/react";
 // import { IoMdInformationCircleOutline } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { TbMessageCircle } from "react-icons/tb";
+import { BsThreeDotsVertical } from "react-icons/bs";
+import React, { useState } from "react";
+
 
 
 
 export default function Home() {
+    const [isClicked, setIsClicked] = useState(false)
+    function switchH() {
+        setIsClicked(s => !s)
+    }
     return (
         <div>
             <Box bgSize="cover" bgRepeat="no-repeat" bgImage="url('./images/instagram.png')" w="100%" h="100%" bgBlendMode="multiply" bgColor="white" display="flex" justifyContent="center" alignItems="center">
@@ -29,13 +36,14 @@ export default function Home() {
                     </Box>
                     <Box color="black" mx="1vw">
                         <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }} gap="6" minWidth="350px">
-                            <CardRoot borderRadius={0}>
-                                <CardHeader><Box display="flex" alignItems="center" mb="10px">
-                                    <CgProfile style={{ marginRight: '8px' }} />
+                            <CardRoot borderRadius="0">
+                                <CardHeader><Box display="flex" alignItems="center" mb="20px">
+                                    <CgProfile style={{ marginRight: '8px', fontSize:"20px" }} />
                                     <Text fontSize="lg" fontWeight="bold">scraper_steps</Text>
+                                    <Box ml="auto"><BsThreeDotsVertical /></Box>
                                 </Box>
                                 </CardHeader>
-                                <CardBody borderWidth="2px" p="10px" borderColor="gray.300">
+                                <CardBody borderWidth=".5px" p="15px" borderColor="gray.110" bgColor="gray.100">
                                     <Box textAlign="left">
                                         <Box>1. Download the following files</Box>
                                         <Box display="flex" m="10px" gap="10px" flexWrap="wrap">
@@ -123,7 +131,7 @@ export default function Home() {
                                     </Box>
                                 </CardBody>
                                 <CardFooter> <Grid>
-                                    <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <FaRegHeart /> <TbMessageCircle style = {{transform: "scaleX(-1)", fontSize:"23px" }} /> </Box> 
+                                    <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <a onClick={switchH}>{isClicked ? (<FaRegHeart />) : (<FaHeart />)}</a>  <TbMessageCircle style = {{transform: "scaleX(-1)", fontSize:"23px" }} /> </Box> 
                                 <Box><strong>scraper_steps</strong> All done! You can now preview the saved files in your folder</Box>
                                 </Grid>
                                 </CardFooter>
