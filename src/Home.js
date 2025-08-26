@@ -1,10 +1,10 @@
-import { Box, Button, Text, Grid, HoverCard, Portal, Strong, CardHeader, CardRoot, CardBody, CardFooter, Input } from "@chakra-ui/react";
+import { Box, Button, Text, Grid, HoverCard, Portal, Strong, CardHeader, CardRoot, CardBody, CardFooter, Input, Popover } from "@chakra-ui/react";
 import { FaRegHeart, FaHeart, FaUserCircle } from "react-icons/fa";
 import { TbMessageCircle } from "react-icons/tb";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { PiUserCircleFill, PiUserCircleDuotone } from "react-icons/pi";
+import { IoMdInformationCircleOutline } from "react-icons/io";
 import { useState } from "react";
-import { Popover } from "@chakra-ui/react"
 
 export default function Home() {
     const [isClicked, setIsClicked] = useState(true)
@@ -38,11 +38,13 @@ export default function Home() {
                                     <Popover.Positioner>
                                         <Popover.Content>
                                             <Popover.Arrow />
-                                            <Popover.Body>
-                                                Enter your instagram login details
+                                            <Popover.Body style={{ gap: "10px" }}>
+                                                <Box w="90%">Enter your instagram login details and the username to retrieve data from</Box>
                                                 <Popover.Root>
                                                     <Popover.Trigger>
-                                                        <a>(i)</a>
+                                                        <a style={{ position: 'absolute', right: '15px', top: '15px', cursor: 'pointer' }}>
+                                                            <IoMdInformationCircleOutline style={{ fontSize: "30px" }} />
+                                                        </a>
                                                     </Popover.Trigger>
                                                     <Popover.Content>
                                                         <Popover.Arrow />
@@ -52,8 +54,9 @@ export default function Home() {
                                                         </Popover.Body>
                                                     </Popover.Content>
                                                 </Popover.Root>
-                                                <Input placeholder="username" size="sm" />
-                                                <Input placeholder="password" size="sm" />
+                                                <Input mt="10px" placeholder="Login" size="sm" />
+                                                <Input my="10px" placeholder="Password" size="sm" />
+                                                <Input placeholder="Target Username" size="sm" />
                                             </Popover.Body>
                                         </Popover.Content>
                                     </Popover.Positioner>
@@ -165,7 +168,7 @@ export default function Home() {
                                     </Box>
                                 </CardBody>
                                 <CardFooter> <Grid>
-                                    <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <a onClick={switchH}>{isClicked ? (<FaRegHeart />) : (<FaHeart />)}</a>  <TbMessageCircle style={{ transform: "scaleX(-1)", fontSize: "23px" }} /> </Box>
+                                    <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <a onClick={switchH}>{isClicked ? (<FaRegHeart />) : (<FaHeart />)}</a>  <a href="mailto:rlf2153@barnard.edu"><TbMessageCircle style={{ transform: "scaleX(-1)", fontSize: "23px" }} /> </a> </Box>
                                     <Box><strong>scraper_steps</strong> All done! You can now preview the saved files in your folder</Box>
                                 </Grid>
                                 </CardFooter>
@@ -184,14 +187,14 @@ export default function Home() {
                                             2. People you follow <br />
                                             3. Who you don’t follow back <br />
                                             4. Who doesn’t follow you back</Box>
-                                        <Box mt="10px">You must be logged in (and follow if it's private) to scrape an account.</Box>
+                                        <Box mt="10px">You must be logged in (and follow if it's private) to get data from an account.</Box>
                                         <Box my="10px">By using this tool, you can easily monitor and manage any Instagram connections.</Box>
                                         <strong>NOTE:</strong> Unfortunately, because Instagram’s anti-bot mechanisms are quite vigilant, the tool must be deployed locally on your computer.
                                         <Box mt="10px">The instructions are for macOS; however, the code works on any system.</Box>
                                     </Box>
                                 </CardBody>
                                 <CardFooter> <Grid>
-                                    <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <a onClick={switchH2}>{isClicked2 ? (<FaRegHeart />) : (<FaHeart />)}</a>  <TbMessageCircle style={{ transform: "scaleX(-1)", fontSize: "23px" }} /> </Box>
+                                    <Box display="flex" gap="10px" my="10px" fontSize="20px" alignItems="center"> <a onClick={switchH2}>{isClicked2 ? (<FaRegHeart />) : (<FaHeart />)}</a>  <a href="mailto:rlf2153@barnard.edu"><TbMessageCircle style={{ transform: "scaleX(-1)", fontSize: "23px" }} /> </a> </Box>
                                     <Box><strong>what_is_it</strong> Hope you found this useful!</Box>
                                 </Grid>
                                 </CardFooter>
