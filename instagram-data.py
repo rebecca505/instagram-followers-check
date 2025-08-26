@@ -1,10 +1,12 @@
 from playwright.sync_api import Playwright, sync_playwright
 import os
 from dotenv import load_dotenv
+import json
 
 load_dotenv()
 loginInfo = os.getenv('LOGIN')
 passwordInfo = os.getenv('PASSWORD')
+scrapedUser = os.getenv('USERNAME')
 
 def run(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=False)
@@ -29,7 +31,27 @@ def run(playwright: Playwright) -> None:
 
     page.goto("https://www.instagram.com/")
 
-    # todo
+    # Wait for the necessary JS to be ready
+    page.wait_for_timeout(5000)
+
+    # Read the JS code from the file
+    with open("scrape.js", "r", encoding="utf-8") as f:
+        js_code = f.read()
+
+    # Pass to evaluate
+    data = page.evaluate(js_code)
+    
+    if "error" in data:
+        print("Error occurred:", data["error"])
+    else:
+        # Save to JSON file
+        with open("followers.json", "w", encoding="utf-8") as f:
+            json.dump(data["followers"], f, indent=2)
+    
+    print("Data saved to JSON files!")
+
+    context.close()
+    browser.close()
 
 if __name__ == "__main__":
     with sync_playwright() as pw:
