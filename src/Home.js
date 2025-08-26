@@ -88,7 +88,7 @@ export default function Home() {
                             </HoverCard.Root></Box>
                             <Box>5.<HoverCard.Root>
                                 <HoverCard.Trigger asChild>
-                                    <span> If not, <a href="https://www.python.org/downloads/"> install it</a>
+                                    <span> If not, <a href="https://www.python.org/downloads/"> install python</a>
                                     </span>
                                 </HoverCard.Trigger>
                                 <Portal>
@@ -106,10 +106,12 @@ export default function Home() {
                                     </HoverCard.Positioner>
                                 </Portal>
                             </HoverCard.Root></Box>
-                            <Box>5. install dependencies: pip install playwright python-dotenv</Box>
-                            <Box>6. then: playwright install</Box>
+                            <Box>5. Install dependencies:</Box>
+                            <Box pl="15px">pip install playwright python-dotenv</Box>
+                            <Box>6. Install Playwright:</Box>
+                            <Box pl="15px">playwright install</Box>
                             {/* need a place for users to type in username/password safely */}
-                            <Box>Finally: python instagram-data.py</Box>
+                            <Box>Finally run the code and type: <strong>python instagram-data.py</strong></Box>
                         </Box>
                         <Box>What is this?</Box>
                         </Grid>
