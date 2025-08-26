@@ -87,6 +87,9 @@ passwordInfo = "`
                             fontFamily: "Helvetica Neue",
                             WebkitTextStroke: ".2vw ",
                         }}>
+                            <a href="/faq" style={{ position: 'absolute', right: '60px', cursor: 'pointer', fontSize: "2.5vw", fontStyle: "italic" }}>
+                                FAQ
+                            </a>
                             <Popover.Root>
                                 <Popover.Trigger asChild>
                                     <a style={{ position: 'absolute', left: '60px', cursor: 'pointer' }}>

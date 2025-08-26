@@ -1,4 +1,6 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+import { FaHome } from "react-icons/fa";
+
 
 export default function FAQ() {
     return (
@@ -12,7 +14,11 @@ export default function FAQ() {
                             fontFamily: "Helvetica Neue",
                             WebkitTextStroke: ".2vw ",
                             fontStyle: "italic"
-                        }}>FAQ</p>
+                        }}>
+                            <a href="/" style={{ position: 'absolute', right: '60px', cursor: 'pointer', fontSize: "3.5vw", fontStyle: "normal" }}>
+                                        <FaHome />
+                                    </a>
+                            FAQ</p>
                         <Box textAlign="left">
                             <Box><strong>Q: Why do I need to log in?</strong></Box>
                             Your login information is used to sign into instagram and activate the scraper.
