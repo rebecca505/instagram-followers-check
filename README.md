@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+The base python code was inspired by: https://stackoverflow.com/questions/73378427/how-to-scrape-the-instagram-followers-popup-with-python-playwright. It was adjusted to download JSON files rather than save to console.
+
+The base javascript code references this code: https://stackoverflow.com/questions/32407851/instagram-api-how-can-i-retrieve-the-list-of-people-a-user-is-following-on-ins. Code was cleaned and adjusted to fit the context of the project (original code was only intended to be called in console).
+
 ## Available Scripts
 
 In the project directory, you can run:
