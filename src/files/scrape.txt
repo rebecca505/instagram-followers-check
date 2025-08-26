@@ -2,7 +2,7 @@
 
 (async () => {
     async function scrapeData() {
-        const username = "beccaxfrey";
+        const username = "USERNAME";
 
         let followers = [];
         let following = [];
