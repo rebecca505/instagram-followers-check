@@ -30,6 +30,8 @@ def run(playwright: Playwright) -> None:
 
     page.goto("https://www.instagram.com/")
 
+    print("Please wait for it to begin")
+
     # Wait for the necessary JS to be ready
     page.wait_for_timeout(5000)
 
@@ -45,9 +47,11 @@ def run(playwright: Playwright) -> None:
     if "error" in data:
         print("Error occurred:", data["error"])
     else:
-        # Save to JSON file
+        # Save to JSON files
         with open("followers.json", "w", encoding="utf-8") as f:
             json.dump(data["followers"], f, indent=2)
+        with open("following.json", "w", encoding="utf-8") as f:
+            json.dump(data["following"], f, indent=2)
     
     print("Data saved to JSON files!")
 
