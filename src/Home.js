@@ -1,14 +1,14 @@
 import { Box, Button, Text, Grid, HoverCard, Portal, Strong, CardHeader, CardRoot, CardBody, CardFooter } from "@chakra-ui/react";
-// import { IoMdInformationCircleOutline } from "react-icons/io";
 import { FaRegHeart, FaHeart, FaUserCircle } from "react-icons/fa";
 import { TbMessageCircle } from "react-icons/tb";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { PiUserCircleFill, PiUserCircleDuotone } from "react-icons/pi";
 import { useState } from "react";
+import { Popover } from "@chakra-ui/react"
 
 export default function Home() {
-    const [isClicked, setIsClicked] = useState(false)
-    const [isClicked2, setIsClicked2] = useState(false)
+    const [isClicked, setIsClicked] = useState(true)
+    const [isClicked2, setIsClicked2] = useState(true)
 
     function switchH() {
         setIsClicked(s => !s)
@@ -28,9 +28,13 @@ export default function Home() {
                             fontFamily: "Helvetica Neue",
                             WebkitTextStroke: ".2vw ",
                         }}>
-                            <PiUserCircleDuotone
-                                style={{ position: 'absolute' }}
-                            />
+                            <Popover.Root>
+                                <Popover.Trigger asChild>
+                                    <a href="/" asChild variant="plain" style={{ position: 'absolute', left: '60px' }}>
+                                        <PiUserCircleDuotone style={{ fontSize: "5vw" }} />
+                                    </a>
+                                </Popover.Trigger>
+                            </Popover.Root>
                             instagram scraper
                             <p style={{
                                 color: "black",
