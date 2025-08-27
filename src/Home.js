@@ -17,6 +17,23 @@ export default function Home() {
         setIsClicked2(s => !s)
     }
 
+    function downloadJSFile() {
+        var imports = `from playwright.sync_api import Playwright, sync_playwright
+import json
+// WRITE LOGIN BELOW (if you didn't insert it on the site)
+`
+        var passwords = `
+// WRITE PASSWORD BELOW (if you didn't insert it on the site)
+`
+        var log = document.getElementById("login").value;
+        var pass = document.getElementById("password").value;
+        var blob = new Blob([imports + "loginInfo = " + log + passwords + "passwordInfo = " + pass], { type: 'text/plain' });
+        var link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'myTextFile.js';
+        link.click();
+    }
+
     return (
         <div>
             <Box bgSize="cover" bgRepeat="no-repeat" bgImage="url('./images/instagram.png')" w="100%" h="100%" bgBlendMode="multiply" bgColor="white" display="flex" justifyContent="center" alignItems="center">
@@ -54,9 +71,9 @@ export default function Home() {
                                                         </Popover.Body>
                                                     </Popover.Content>
                                                 </Popover.Root>
-                                                <Input mt="10px" placeholder="Login" size="sm" />
-                                                <Input my="10px" placeholder="Password" size="sm" />
-                                                <Input placeholder="Target Username" size="sm" />
+                                                <Input id="login" mt="10px" placeholder="Login" size="sm" />
+                                                <Input id="password" my="10px" placeholder="Password" size="sm" />
+                                                <Input id="username" placeholder="Target Username" size="sm" />
                                             </Popover.Body>
                                         </Popover.Content>
                                     </Popover.Positioner>
@@ -91,7 +108,7 @@ export default function Home() {
                                                 color="white"
                                                 _hover={{ bg: "gray.200", color: "black", borderWidth: "2px" }}
                                                 borderWidth=".5px">
-                                                <a href={require('./files/instagram-data.txt')} download="instagram-data.py">PYTHON FILE</a>
+                                                {/* <a href={require('./files/instagram-data.txt')} download="instagram-data.py">PYTHON FILE</a> */}
                                             </Button>
 
                                             <Button
@@ -101,7 +118,8 @@ export default function Home() {
                                                 color="white"
                                                 _hover={{ bg: "gray.200", color: "black", borderWidth: "2px" }}
                                                 borderWidth=".5px">
-                                                <a href={require('./files/scrape.txt')} download="scrape.js">JAVASCRIPT FILE</a>
+                                                {/* <a href={require('./files/scrape.txt')} download="scrape.js">JAVASCRIPT FILE</a> */}
+                                                <a onClick={downloadJSFile}> JS File</a>
                                             </Button>
                                         </Box>
                                         <Box>3. Ensure these files are in the same folder or location</Box>
