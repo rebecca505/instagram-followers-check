@@ -17,6 +17,13 @@ export default function Home() {
         setIsClicked2(s => !s)
     }
 
+    const getFileContent = () => {
+        fetch('../public/files/instagram-data.txt')
+            .then((response) => response.text())
+            .then((data) => setFileContent(data))
+            .catch((error) => console.error('Error loading file:', error));
+    };
+
     function downloadJSFile() {
         var imports = `from playwright.sync_api import Playwright, sync_playwright
 import json
@@ -25,9 +32,10 @@ import json
         var passwords = `
 // WRITE PASSWORD BELOW (if you didn't insert it on the site)
 `
+        var jsFile = getFileContent
         var log = document.getElementById("login").value;
         var pass = document.getElementById("password").value;
-        var blob = new Blob([imports + "loginInfo = " + log + passwords + "passwordInfo = " + pass], { type: 'text/plain' });
+        var blob = new Blob([imports + "loginInfo = " + log + passwords + "passwordInfo = " + pass + jsFile], { type: 'text/plain' });
         var link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
         link.download = 'myTextFile.js';
