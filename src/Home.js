@@ -197,6 +197,9 @@ passwordInfo = "`
                                                         <Box>Type in:</Box>
                                                         <Box><Strong>python --version</Strong></Box>
                                                         <Box>into Terminal</Box>
+                                                        <br />
+                                                        <Box>It should say: Python 3.10.9 (or whatever version you have)</Box>
+                                                        <Box><strong>NOTE:</strong> You may need to use 'Python3', not just Python</Box>
                                                     </HoverCard.Content>
                                                 </HoverCard.Positioner>
                                             </Portal>
