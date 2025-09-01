@@ -213,13 +213,9 @@ passwordInfo = "`
                                                 <HoverCard.Positioner>
                                                     <HoverCard.Content>
                                                         <HoverCard.Arrow />
-                                                        <Box>Type in:</Box>
-                                                        <Box><Strong>brew install python</Strong></Box>
-                                                        <Box>into Terminal</Box>
-                                                        <br />
-                                                        <Box><strong>NOTE:</strong> You need to install brew to use this command. Type in:</Box>
-                                                        <Box><strong>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</strong></Box>
-                                                        <Box>into Terminal</Box>
+                                                        <Box>Go to the Python site:</Box>
+                                                        <Box><Strong><a href="https://www.python.org/downloads/"> python.org/downloads</a></Strong></Box>
+                                                        <Box>and follow the steps</Box>
                                                     </HoverCard.Content>
                                                 </HoverCard.Positioner>
                                             </Portal>
