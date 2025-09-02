@@ -220,8 +220,22 @@ passwordInfo = "`
                                                 </HoverCard.Positioner>
                                             </Portal>
                                         </HoverCard.Root></Box>
-                                        <Box>7. Install dependencies:</Box>
-                                        <Box pl="15px">pip install playwright python-dotenv</Box>
+                                        <Box>7.<HoverCard.Root>
+                                            <HoverCard.Trigger asChild>
+                                                <span> Install dependencies: 
+                                                <Box pl="15px">pip install playwright python-dotenv</Box></span>
+                                            </HoverCard.Trigger>
+                                            <Portal>
+                                                <HoverCard.Positioner>
+                                                    <HoverCard.Content>
+                                                        <HoverCard.Arrow />
+                                                        <Box>Type in:</Box>
+                                                        <Box><Strong>pip install playwright python-dotenv</Strong></Box>
+                                                        <Box>into Terminal</Box>
+                                                    </HoverCard.Content>
+                                                </HoverCard.Positioner>
+                                            </Portal>
+                                        </HoverCard.Root></Box>
                                         <Box>8. Install Playwright:</Box>
                                         <Box pl="15px">playwright install</Box>
                                         <Box>Finally run the code and type: <strong>python instagram-data.py</strong></Box>
