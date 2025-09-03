@@ -232,6 +232,7 @@ passwordInfo = "`
                                                         <Box>Type in:</Box>
                                                         <Box><Strong>pip install playwright python-dotenv</Strong></Box>
                                                         <Box>into Terminal</Box>
+                                                        <Box><strong>NOTE:</strong> You may need to use 'Python -m pip' (or 'Python3'), not just 'pip'</Box>
                                                     </HoverCard.Content>
                                                 </HoverCard.Positioner>
                                             </Portal>
