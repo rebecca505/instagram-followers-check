@@ -147,22 +147,22 @@ passwordInfo = "`
                                         <Box>2. Download the following files</Box>
                                         <Box display="flex" m="10px" gap="10px" flexWrap="wrap">
                                             <Button
-                                                borderColor="gray.300"
+                                                borderColor="gray.900"
                                                 fontSize={"14px"}
                                                 background="black"
                                                 color="white"
-                                                _hover={{ bg: "gray.200", color: "black", borderWidth: "2px" }}
-                                                borderWidth=".5px">
+                                                _hover={{ borderColor:"gray.300", bg: "gray.200", color: "black", borderWidth: "2px" }}
+                                                borderWidth="2px">
                                                 <a onClick={downloadPYFile}> PYTHON FILE</a>
                                             </Button>
 
                                             <Button
-                                                borderColor="gray.300"
+                                                borderColor="gray.900"
                                                 fontSize={"14px"}
                                                 background="black"
                                                 color="white"
-                                                _hover={{ bg: "gray.200", color: "black", borderWidth: "2px" }}
-                                                borderWidth=".5px">
+                                                _hover={{ borderColor:"gray.300", bg: "gray.200", color: "black", borderWidth: "2px" }}
+                                                borderWidth="2px">
                                                 <a onClick={downloadJSFile}> JAVASCRIPT FILE</a>
                                             </Button>
                                         </Box>
