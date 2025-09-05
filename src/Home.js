@@ -239,6 +239,7 @@ passwordInfo = "`
                                         </HoverCard.Root></Box>
                                         <Box>8. Install Playwright:</Box>
                                         <Box pl="15px">playwright install</Box>
+                                        <Box>9. Naviagate to where you saved the folder (e.g. Downloads) on Terminal</Box>
                                         <Box>Finally run the code and type: <strong>python instagram-data.py</strong></Box>
                                     </Box>
                                 </CardBody>
