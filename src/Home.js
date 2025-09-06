@@ -266,7 +266,7 @@ passwordInfo = "`
                                         <Box mt="10px">You must be logged in (and follow if it's private) to get data from an account.</Box>
                                         <Box my="10px">By using this tool, you can easily monitor and manage any Instagram connections.</Box>
                                         <strong>NOTE:</strong> Unfortunately, because Instagram’s anti-bot mechanisms are quite vigilant, the tool must be deployed locally on your computer.
-                                        <Box mt="10px">The instructions are for macOS; however, the code works on any system.</Box>
+                                        <Box mt="10px">The instructions are for <strong>macOS</strong>; however, the code works on any system.</Box>
                                     </Box>
                                 </CardBody>
                                 <CardFooter> <Grid>
