@@ -239,7 +239,21 @@ passwordInfo = "`
                                         </HoverCard.Root></Box>
                                         <Box>8. Install Playwright:</Box>
                                         <Box pl="15px">playwright install</Box>
-                                        <Box>9. Naviagate to where you saved the folder (e.g. Downloads) on Terminal</Box>
+                                        <Box>9.<HoverCard.Root>
+                                            <HoverCard.Trigger asChild>
+                                                <span> Naviagate to where you saved the folder (e.g. Downloads) on Terminal
+                                                </span>
+                                            </HoverCard.Trigger>
+                                            <Portal>
+                                                <HoverCard.Positioner>
+                                                    <HoverCard.Content>
+                                                        <HoverCard.Arrow />
+                                                        <Box>In Teminal, type in 'cd' to route back to the home directory</Box>
+                                                        <Box>Then, type in 'cd Downloads' to go to your downloads folder</Box>
+                                                    </HoverCard.Content>
+                                                </HoverCard.Positioner>
+                                            </Portal>
+                                        </HoverCard.Root></Box>
                                         <Box>Finally run the code and type: <strong>python instagram-data.py</strong></Box>
                                     </Box>
                                 </CardBody>
