@@ -241,7 +241,7 @@ passwordInfo = "`
                                         <Box pl="15px">playwright install</Box>
                                         <Box>9.<HoverCard.Root>
                                             <HoverCard.Trigger asChild>
-                                                <span> Naviagate to where you saved the folder (e.g. Downloads) on Terminal
+                                                <span> Naviagate to where you saved the folder (e.g. <text style={{fontStyle: "italic"}}>Downloads</text>) on Terminal
                                                 </span>
                                             </HoverCard.Trigger>
                                             <Portal>
@@ -249,7 +249,7 @@ passwordInfo = "`
                                                     <HoverCard.Content>
                                                         <HoverCard.Arrow />
                                                         <Box>In Teminal, type in 'cd' to route back to the home directory</Box>
-                                                        <Box>Then, type in 'cd Downloads' to go to your downloads folder</Box>
+                                                        <Box>Then, type in 'cd <text style={{fontStyle: "italic"}}>downloads</text>' to go to your <text style={{fontStyle: "italic"}}>downloads</text> folder</Box>
                                                     </HoverCard.Content>
                                                 </HoverCard.Positioner>
                                             </Portal>
