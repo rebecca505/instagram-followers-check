@@ -1,4 +1,29 @@
-# Getting Started with Create React App
+# Instagram Scraper UI
+
+A **React-based web interface** that allows users to generate custom Python and JavaScript scripts to scrape Instagram data such as:
+
+- Followers
+- Following
+- Who you don’t follow back
+- Who doesn’t follow you back
+
+> **For local use only** — No data is sent to a server. Your credentials are used only to generate local files for download.
+
+---
+
+## How it Works
+
+- User provides credentials and target username via the UI
+- The app fetches py-insta.txt and js-insta.txt template files
+- Credentials are injected into the scripts locally
+- Files are downloaded:
+  - instagram-data.py
+  - scrape.js
+- You follow provided setup instructions to run the Python script locally on macOS
+
+---
+
+## Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
